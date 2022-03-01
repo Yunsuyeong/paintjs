@@ -4,6 +4,7 @@ const colors=document.querySelectorAll(".jsColor");
 const range=document.querySelector("#jsRange");
 const mode=document.querySelector("#jsMode");
 const save=document.querySelector("#jsSave");
+const reset=document.querySelector("#jsReset");
 
 const INITIAL_COLOR="black";
 const CANVAS_SIZE=700;
@@ -84,6 +85,11 @@ function onClickSave(){
     link.click();
 }
 
+function onClickReset(){
+    ctx.fillStyle="white";
+    ctx.fillRect(0,0,CANVAS_SIZE, CANVAS_SIZE);
+}
+
 if(canvas){
     canvas.addEventListener("mousemove",onMouseMove);
     canvas.addEventListener("mousedown",StartPainting);
@@ -105,4 +111,8 @@ if(mode){
 
 if(save){
     save.addEventListener("click",onClickSave)
+}
+
+if(reset){
+    reset.addEventListener("click",onClickReset)
 }
